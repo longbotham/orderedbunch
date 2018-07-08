@@ -129,7 +129,7 @@ def _print_recursive(xxx):
     return sss.strip()
 
 
-def _print_recursive_main(xxx, depth=0, width=80, plen=0):
+def _print_recursive_main(xxx, depth=0, width=160, plen=0):
 
     # ToDo - width doesn't currently wrap the entry indentions - it only
     #        controls the printing of the dictionary values or list entries.
