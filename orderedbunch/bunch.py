@@ -13,6 +13,9 @@ import collections as _collections
 import textwrap as _textwrap
 #import inspect as _inspect
 
+# ToDo Implement automatic creation of nested dictionary keys
+# ToDo Test/Document IPython completion options
+
 
 class OrderedBunch(_collections.OrderedDict):
     """ A dictionary that provides attribute-style access.
@@ -90,6 +93,9 @@ class OrderedBunch(_collections.OrderedDict):
         """ Pretty print for this class.  Will only trigger in ipython."""
         p.text(_print_recursive(self))
 
+    def pretty_str(self):
+        return _print_recursive(self)
+
     def __dir__(self):
         """ Overload the tab-complete operation so that it is easier to dynamically explore the bunch.
         """
@@ -133,9 +139,11 @@ def _print_recursive_main(xxx, depth=0, width=160, plen=0):
 
     # ToDo - width doesn't currently wrap the entry indentions - it only
     #        controls the printing of the dictionary values or list entries.
+    # ToDo - Correctly print the case that a list if the first object passed.
 
     sss = ''
     depmarks = '-' * depth
+    # depmarks = ':'
 
     if isinstance(xxx,dict):
         # Gen max length of labels to set prefix length
