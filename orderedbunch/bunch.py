@@ -29,8 +29,8 @@ class OrderedBunch(_collections.OrderedDict):
     def __init__(self,*args,**kwarg):
         """ initializes the ordered dict
         """
-        # super(OrderedBunch,self).__init__(*args,**kwarg)
-        super().__init__(*args,**kwarg)
+        super(OrderedBunch,self).__init__(*args,**kwarg)
+        # super().__init__(*args,**kwarg)
         self._initialized = True
 
     def __contains__(self, k):
